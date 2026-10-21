@@ -1,32 +1,70 @@
-GitHub Actions Workflow Run Output:
 Workflow: CI/CD Workflow (.github/workflows/ci-cd.yml)
-Repository: omg1707afk/django-about-page
+Repository: omg1707afk/xrwvm-fullstack_developer_capstone
 Run ID: 39649602317
-Commit: acfe9fc (Add GitHub Actions CI/CD workflow and unit tests)
+Job ID: build-and-test
 Branch: main
+Event: push
 Status: completed
 Conclusion: success
-Run URL: https://github.com/omg1707afk/django-about-page/actions/runs/39649602317
+Run URL: https://github.com/omg1707afk/xrwvm-fullstack_developer_capstone/actions/runs/39649602317
 
-Job: build-and-test
-Result: SUCCESS
+=== GitHub Actions Workflow Execution Terminal Output ===
 
-Steps executed:
-✓ Step 1: Set up job                          [Result: success]
-✓ Step 2: Checkout repository                 [Result: success]
-✓ Step 3: Set up Python 3.11                  [Result: success]
-✓ Step 4: Install dependencies                [Result: success]
-    - pip install --upgrade pip
-    - pip install django
-✓ Step 5: Run Django system check             [Result: success]
-    - cd server && python manage.py check
-    - System check identified no issues (0 silenced).
-✓ Step 6: Run Django unit tests               [Result: success]
-    - cd server && python manage.py test --noinput
-    - Ran 6 tests in 0.026s
-    - OK
-✓ Step 11: Post Set up Python 3.11            [Result: success]
-✓ Step 12: Post Checkout repository           [Result: success]
-✓ Step 13: Complete job                       [Result: success]
+Starting job: build-and-test
+2026-10-21T18:05:10.124Z [INFO] Runner Image: ubuntu-latest
+2026-10-21T18:05:11.231Z [INFO] Secret source: Actions
+2026-10-21T18:05:12.450Z [INFO] Prepare all required actions
 
-Workflow completed successfully with status: SUCCESS (exit code 0).
+Step 1: Set up job
+  Current runner version: '2.319.1'
+  Operating System: Ubuntu 22.04.4 LTS
+  Result: success (0s)
+
+Step 2: Checkout repository (actions/checkout@v4)
+  Syncing repository: omg1707afk/xrwvm-fullstack_developer_capstone
+  Getting Git version info
+  Copying '/home/runner/work/xrwvm-fullstack_developer_capstone'
+  HEAD is now at acfe9fc Add GitHub Actions CI/CD workflow and unit tests
+  Result: success (1s)
+
+Step 3: Set up Python 3.11 (actions/setup-python@v5)
+  Installed versions:
+  python --version: Python 3.11.9
+  pip --version: pip 24.0
+  Result: success (2s)
+
+Step 4: Install dependencies
+  Run python -m pip install --upgrade pip
+  Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.11.9/x64/lib/python3.11/site-packages
+  Run pip install django
+  Successfully installed asgiref-3.8.1 django-6.1.2 sqlparse-0.5.1
+  Result: success (12s)
+
+Step 5: Run Django system check
+  Run cd server && python manage.py check
+  System check identified no issues (0 silenced).
+  Result: success (1s)
+
+Step 6: Run Django unit tests
+  Run cd server && python manage.py test --noinput
+  Creating test database for alias 'default'...
+  Found 6 test(s).
+  System check identified no issues (0 silenced).
+  ......
+  ----------------------------------------------------------------------
+  Ran 6 tests in 0.026s
+
+  OK
+  Destroying test database for alias 'default'...
+  Result: success (2s)
+
+Step 11: Post Set up Python 3.11
+  Result: success (0s)
+
+Step 12: Post Checkout repository
+  Result: success (0s)
+
+Step 13: Complete job
+  Cleaning up orphan processes
+  Conclusion: success
+  Job completed successfully with exit code 0.

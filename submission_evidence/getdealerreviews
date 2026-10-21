@@ -1,15 +1,15 @@
 Command:
-curl.exe -i -X GET "http://127.0.0.1:8000/dealers/1/reviews/"
+curl.exe -i -X GET "http://127.0.0.1:8000/fetchReviews/dealer/15"
 
 Output:
 HTTP/1.1 200 OK
-Date: Wed, 21 Oct 2026 16:15:10 GMT
+Date: Wed, 21 Oct 2026 18:26:36 GMT
 Server: WSGIServer/0.2 CPython/3.14.8
 Content-Type: application/json
 X-Frame-Options: DENY
-Content-Length: 697
+Content-Length: 629
 X-Content-Type-Options: nosniff
 Referrer-Policy: same-origin
 Cross-Origin-Opener-Policy: same-origin
 
-{"dealer_id": 1, "dealer": {"id": 1, "name": "Demo Dealer", "city": "Topeka", "state": "Kansas", "st": "KS", "address": "123 Main Street", "zip": "66002", "lat": 39.0473, "long": -95.6752, "short_name": "Demo", "full_name": "Demo Dealer of Kansas", "location": "Pune"}, "reviews": [{"id": 1, "name": "Demo Dealer", "dealership": 1, "review": "Excellent service.", "purchase": true, "purchase_date": "02/15/2026", "car_make": "Toyota", "car_model": "Camry", "car_year": 2023, "sentiment": "positive", "rating": 5, "username": "demo"}, {"id": 2, "name": "Demo Dealer", "dealership": 1, "review": "Good experience.", "purchase": false, "sentiment": "positive", "rating": 4, "username": "customer2"}]}
+[{"id": 1, "name": "Berkly Shepley", "dealership": 15, "review": "Total grid-enabled service-desk", "purchase": true, "purchase_date": "07/11/2020", "car_make": "Audi", "car_model": "A6", "car_year": 2010}, {"id": 37, "name": "Albrecht Collen", "dealership": 15, "review": "Pre-emptive heuristic solution", "purchase": true, "purchase_date": "10/10/2020", "car_make": "Lexus", "car_model": "IS F", "car_year": 2009}, {"id": 38, "name": "Prudi Minchi", "dealership": 15, "review": "Mandatory homogeneous groupware", "purchase": true, "purchase_date": "01/06/2021", "car_make": "Saturn", "car_model": "L-Series", "car_year": 2001}]

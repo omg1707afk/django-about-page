@@ -1,15 +1,15 @@
 Command:
-curl.exe -i -X GET "http://127.0.0.1:8000/dealers/by-state/?state=Kansas"
+curl.exe -i -X GET "http://127.0.0.1:8000/fetchDealers/Kansas"
 
 Output:
 HTTP/1.1 200 OK
-Date: Wed, 21 Oct 2026 17:21:38 GMT
+Date: Wed, 21 Oct 2026 18:27:30 GMT
 Server: WSGIServer/0.2 CPython/3.14.8
 Content-Type: application/json
 X-Frame-Options: DENY
-Content-Length: 256
+Content-Length: 206
 X-Content-Type-Options: nosniff
 Referrer-Policy: same-origin
 Cross-Origin-Opener-Policy: same-origin
 
-{"dealers": [{"id": 1, "name": "Demo Dealer", "city": "Topeka", "state": "Kansas", "st": "KS", "address": "123 Main Street", "zip": "66002", "lat": 39.0473, "long": -95.6752, "short_name": "Demo", "full_name": "Demo Dealer of Kansas", "location": "Pune"}]}
+[{"id": 8, "city": "Topeka", "state": "Kansas", "st": "KS", "address": "288 Larry Place", "zip": "66642", "lat": 39.0429, "long": -95.7697, "short_name": "Bytecard", "full_name": "Bytecard Car Dealership"}]

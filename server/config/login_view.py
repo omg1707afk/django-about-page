@@ -14,10 +14,13 @@ def login_user(request):
     except (json.JSONDecodeError, UnicodeDecodeError):
         return JsonResponse({"error": "Invalid JSON"}, status=400)
 
+    username = data.get("userName") or data.get("username", "")
+    password = data.get("password", "")
+
     user = authenticate(
         request,
-        username=data.get("username", ""),
-        password=data.get("password", ""),
+        username=username,
+        password=password,
     )
 
     if user is None:
@@ -25,17 +28,14 @@ def login_user(request):
 
     login(request, user)
     return JsonResponse({
-        "message": "Login successful",
-        "username": user.username
+        "userName": user.username,
+        "status": "Authenticated"
     })
 
 @csrf_exempt
 def logout_user(request):
-    if request.method != "POST":
-        return JsonResponse({"error": "POST required"}, status=405)
-
     logout(request)
-    return JsonResponse({"message": "Logout successful"})
+    return JsonResponse({"userName": ""})
 
 @csrf_exempt
 def register_user(request):
@@ -47,7 +47,7 @@ def register_user(request):
     except (json.JSONDecodeError, UnicodeDecodeError):
         return JsonResponse({"error": "Invalid JSON"}, status=400)
 
-    username = data.get("username", "").strip()
+    username = data.get("userName") or data.get("username", "").strip()
     first_name = data.get("first_name", "").strip()
     last_name = data.get("last_name", "").strip()
     email = data.get("email", "").strip()
@@ -72,6 +72,6 @@ def register_user(request):
     return JsonResponse({
         "status": True,
         "message": "User registered successfully",
-        "username": user.username,
+        "userName": user.username,
         "email": user.email
     }, status=201)

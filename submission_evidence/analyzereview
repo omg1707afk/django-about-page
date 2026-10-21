@@ -1,18 +1,15 @@
 Command:
-curl.exe -i -X POST "http://127.0.0.1:8000/analyze-review/" -H "Content-Type: application/json" --data-binary "@review_body.json"
-
-Input Payload:
-{"review": "Fantastic services"}
+curl.exe -i -X GET "http://127.0.0.1:8000/analyze/Fantastic%20services"
 
 Output:
 HTTP/1.1 200 OK
-Date: Wed, 21 Oct 2026 17:22:38 GMT
+Date: Wed, 21 Oct 2026 18:27:45 GMT
 Server: WSGIServer/0.2 CPython/3.14.8
 Content-Type: application/json
 X-Frame-Options: DENY
-Content-Length: 57
+Content-Length: 25
 X-Content-Type-Options: nosniff
 Referrer-Policy: same-origin
 Cross-Origin-Opener-Policy: same-origin
 
-{"review": "Fantastic services", "sentiment": "Positive"}
+{"sentiment": "positive"}
