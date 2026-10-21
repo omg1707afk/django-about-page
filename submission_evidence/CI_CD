@@ -1,0 +1,32 @@
+GitHub Actions Workflow Run Output:
+Workflow: CI/CD Workflow (.github/workflows/ci-cd.yml)
+Repository: omg1707afk/django-about-page
+Run ID: 39649602317
+Commit: acfe9fc (Add GitHub Actions CI/CD workflow and unit tests)
+Branch: main
+Status: completed
+Conclusion: success
+Run URL: https://github.com/omg1707afk/django-about-page/actions/runs/39649602317
+
+Job: build-and-test
+Result: SUCCESS
+
+Steps executed:
+✓ Step 1: Set up job                          [Result: success]
+✓ Step 2: Checkout repository                 [Result: success]
+✓ Step 3: Set up Python 3.11                  [Result: success]
+✓ Step 4: Install dependencies                [Result: success]
+    - pip install --upgrade pip
+    - pip install django
+✓ Step 5: Run Django system check             [Result: success]
+    - cd server && python manage.py check
+    - System check identified no issues (0 silenced).
+✓ Step 6: Run Django unit tests               [Result: success]
+    - cd server && python manage.py test --noinput
+    - Ran 6 tests in 0.026s
+    - OK
+✓ Step 11: Post Set up Python 3.11            [Result: success]
+✓ Step 12: Post Checkout repository           [Result: success]
+✓ Step 13: Complete job                       [Result: success]
+
+Workflow completed successfully with status: SUCCESS (exit code 0).
