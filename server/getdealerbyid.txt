@@ -1,0 +1,15 @@
+﻿Command:
+curl.exe -i "http://127.0.0.1:8000/dealers/1/"
+
+Output:
+HTTP/1.1 200 OK
+Date: Sat, 17 Oct 2026 07:00:41 GMT
+Server: WSGIServer/0.2 CPython/3.14.8
+Content-Type: application/json
+X-Frame-Options: DENY
+Content-Length: 64
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+Cross-Origin-Opener-Policy: same-origin
+
+{"dealer": {"id": 1, "name": "Demo Dealer", "location": "Pune"}}

@@ -1,0 +1,6 @@
+﻿Command:
+curl.exe -sS -X GET "http://127.0.0.1:8000/dealers/1/reviews/"
+
+Output:
+{"dealer_id": 1, "reviews": [{"username": "demo", "rating": 5, "review": "Excellent service."}, {"username": "customer2", "rating": 4, "review": "Good experience."}]}
+

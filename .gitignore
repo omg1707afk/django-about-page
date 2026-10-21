@@ -1,0 +1,9 @@
+*.pyc
+__pycache__/
+*.sqlite3
+cookies.txt
+login_body.json
+review_body.json
+.DS_Store
+.vscode/
+.idea/

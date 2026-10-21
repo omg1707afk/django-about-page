@@ -1,0 +1,17 @@
+Command:
+curl.exe -i -b cookies.txt -c cookies.txt -X POST "http://127.0.0.1:8000/logout/"
+
+Output:
+HTTP/1.1 200 OK
+Date: Wed, 21 Oct 2026 16:13:04 GMT
+Server: WSGIServer/0.2 CPython/3.14.8
+Content-Type: application/json
+X-Frame-Options: DENY
+Content-Length: 32
+Vary: Cookie
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+Cross-Origin-Opener-Policy: same-origin
+Set-Cookie: sessionid=""; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/; SameSite=Lax
+
+{"message": "Logout successful"}

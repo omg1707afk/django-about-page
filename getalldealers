@@ -1,0 +1,15 @@
+Command:
+curl.exe -i -X GET "http://127.0.0.1:8000/dealers/"
+
+Output:
+HTTP/1.1 200 OK
+Date: Wed, 21 Oct 2026 16:15:19 GMT
+Server: WSGIServer/0.2 CPython/3.14.8
+Content-Type: application/json
+X-Frame-Options: DENY
+Content-Length: 519
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+Cross-Origin-Opener-Policy: same-origin
+
+{"dealers": [{"id": 1, "name": "Demo Dealer", "city": "Topeka", "state": "Kansas", "st": "KS", "address": "123 Main Street", "zip": "66002", "lat": 39.0473, "long": -95.6752, "short_name": "Demo", "full_name": "Demo Dealer of Kansas", "location": "Pune"}, {"id": 2, "name": "Sample Dealer", "city": "Los Angeles", "state": "California", "st": "CA", "address": "456 Market St", "zip": "90001", "lat": 34.0522, "long": -118.2437, "short_name": "Sample", "full_name": "Sample Dealer of California", "location": "Mumbai"}]}

@@ -1,0 +1,12 @@
+﻿Task 6: Django Logout Operation
+
+Login command:
+curl.exe -sS -c cookies.txt -b cookies.txt -X POST "http://127.0.0.1:8000/login/" -H "Content-Type: application/json" --data-binary "@login_body.json"
+Login output:
+{"message": "Login successful", "username": "demo"}
+
+Logout command:
+curl.exe -sS -c cookies.txt -b cookies.txt -X POST "http://127.0.0.1:8000/logout/"
+Logout output:
+{"message": "Logout successful"}
+

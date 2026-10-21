@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Review - Car Dealers</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 30px 20px;
+            color: #222;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 20px auto;
+        }
+
+        .review-card {
+            padding: 30px;
+            margin-bottom: 24px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            color: #1769aa;
+            margin-top: 0;
+        }
+
+        .dealer-info {
+            background: #eaf1f8;
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .dealer-info h2 {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 22px;
+            padding: 12px 22px;
+            background: #1769aa;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #104d80;
+        }
+
+        .error {
+            padding: 12px;
+            background: #ffe8e8;
+            color: #a00000;
+            border-radius: 6px;
+        }
+
+        .success {
+            padding: 12px;
+            background: #e5f7e9;
+            color: #176b32;
+            border-radius: 6px;
+        }
+
+        .review-item {
+            padding: 18px;
+            margin-top: 15px;
+            border: 1px solid #e1e5e9;
+            border-left: 5px solid #1769aa;
+            border-radius: 7px;
+        }
+
+        .rating {
+            color: #8a6200;
+            font-weight: bold;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 18px;
+            color: #1769aa;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            .review-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+
+        <a class="back-link" href="/">&#8592; Back to Dealers</a>
+
+        <section class="review-card">
+            <h1>Post Review</h1>
+
+            <div class="dealer-info">
+                <h2>{{ dealer.name }}</h2>
+                <p><strong>Dealer ID:</strong> {{ dealer.id }}</p>
+                <p><strong>Location:</strong> {{ dealer.location }}</p>
+            </div>
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+
+            {% if success %}
+                <p class="success">{{ success }}</p>
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+
+                <label for="reviewer_name">Your Name</label>
+                <input
+                    type="text"
+                    id="reviewer_name"
+                    name="reviewer_name"
+                    value="{{ reviewer_name|default:'Demo User' }}"
+                    placeholder="Enter your name"
+                    required
+                >
+
+                <label for="rating">Rating</label>
+                <select id="rating" name="rating" required>
+                    <option value="">Select a rating</option>
+                    <option value="5" selected>5 - Excellent</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="3">3 - Good</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="1">1 - Poor</option>
+                </select>
+
+                <label for="review">Your Review</label>
+                <textarea
+                    id="review"
+                    name="review"
+                    placeholder="Write your review here..."
+                    required
+                >{{ review_text|default:"Fantastic services" }}</textarea>
+
+                <button type="submit">Submit Review</button>
+            </form>
+        </section>
+
+        {% if reviews %}
+        <section class="review-card">
+            <h2>Posted Reviews</h2>
+
+            {% for item in reviews %}
+            <article class="review-item">
+                <h3>{{ item.username }}</h3>
+
+                <p class="rating">
+                    Rating: {{ item.rating }}/5
+                </p>
+
+                <p>
+                    <strong>Review:</strong>
+                    {{ item.review }}
+                </p>
+
+                <p class="success">Review posted successfully</p>
+            </article>
+            {% endfor %}
+        </section>
+        {% endif %}
+
+    </main>
+</body>
+</html>
